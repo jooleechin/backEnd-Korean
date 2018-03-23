@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
     t.string('lName').notNullable().defaultTo('')
     t.string('email').notNullable().defaultTo('')
     t.string('password').notNullable().defaultTo('')
-    t.integer('progress').notNullable().defaultTo(0)
+    t.float('progress').notNullable().defaultTo(0)
   })
 };
 
