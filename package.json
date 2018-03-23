@@ -1,0 +1,33 @@
+{
+  "name": "backEnd-Korean",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jsonWebTockenAsync.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.0",
+    "knex": "^0.14.4",
+    "path": "^0.12.7",
+    "pg": "^7.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
+  },
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jooleechin/backEnd-Korean.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jooleechin/backEnd-Korean/issues"
+  },
+  "homepage": "https://github.com/jooleechin/backEnd-Korean#readme"
+}
