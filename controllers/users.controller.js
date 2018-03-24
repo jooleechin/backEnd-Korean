@@ -7,16 +7,16 @@ class UsersController {
     Users.all().then(users => res.json({ users }))
   }
   static one(req, res, next) {
-    Users.one(req.params.id).then(users => res.json({ users }))
+    Users.one(req.params.id).then(user => res.json({ user }))
   }
   static signup(req, res, next) {
-    Users.signup(req.body).then(users => res.json({ users }))
+    Users.signup(req.body).then(user => res.json({ user }))
   }
   static edit(req, res, next) {
-    Users.edit(req.params.id).then(users => res.json({ users }))
+    Users.edit(req.params.id, req.body).then(user => res.json({ user }))
   }
   static erase(req, res, next) {
-    Users.erase(req.params.id).then(users => res.json({ users }))
+    Users.erase(req.params.id).then(user => res.json({ user }))
   }
 }
 

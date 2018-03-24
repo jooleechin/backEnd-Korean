@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 
 const { usersRouter } = require('./routes')
-app.use('/api/users', usersRouter)
+app.use('/users', usersRouter)
 
 app.use((req, res) => {
   const status = 404;
