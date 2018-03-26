@@ -25,7 +25,11 @@ exports.seed = function(knex, Promise) {
         {id: 18, question: "트", a: "teu", b: "tee", c: "tyoo", d: "tweh", answer: "teu"},
         {id: 19, question: "처", a: "jah", b: "chah", c: "chuh", d: "juh", answer: "chuh"},
         {id: 20, question: "먜", a: "myeh", b: "byeh", c: "dyeh", d: "gyeh", answer: "myeh"},
-
       ]);
     });
+    .then(() => {
+      return knex.raw(
+        `SELECT setval('Q3combo', (SELECT MAX(id) FROM Q3combo))`
+      )
+    })
 };

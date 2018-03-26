@@ -1,8 +1,7 @@
 const knex = require('../db/knex')
+const bcrypt = require('bcryptjs')
 
 class Users {
-  constructor() {}
-
   static all() {
     return knex('users')
   }
@@ -33,6 +32,18 @@ class Users {
       .returning('*')
       .then(([result]) => {
         return result
+      })
+  }
+  static tryLoginUser(email, password) {
+    return knex('users')
+      .select('password')
+      .first()
+      .where({ email })
+      .then(result => {
+        if (!result) {
+          return false
+        }
+        return bcrypt.compare(password, result.password)
       })
   }
 }
