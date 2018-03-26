@@ -2,12 +2,14 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
-
 const app = express();
+require('dotenv').config()
+
 app.use(bodyParser.json());
 
-const { usersRouter } = require('./routes')
+const { usersRouter, loginRouter } = require('./routes')
 app.use('/users', usersRouter)
+app.use('/login', loginRouter)
 
 app.use((req, res) => {
   const status = 404;
@@ -28,4 +30,4 @@ app.listen(port, () => {
   console.log('listening on port', port);
 });
 
-const chicago = "relaxing, and ummmmmmm hmmmmm euhruehr luuul rip joolee"
+module.exports = app
