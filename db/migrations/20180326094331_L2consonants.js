@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('combo', (t) => {
+  return knex.schema.createTable('L2consonants', (t) => {
     t.increments()
     t.string('symbol').notNullable().defaultTo('')
     t.string('pronounciation').notNullable().defaultTo('')
@@ -9,5 +9,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('combo')
+  return knex.schema.dropTable('L2consonants')
 };
