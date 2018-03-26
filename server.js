@@ -15,7 +15,7 @@ app.use((req, res) => {
   res.status(status).json({ status, message });
 });
 
-app.use((err, _req, res, _next) => {
+app.use((err, req, res, next) => {
   console.error(err);
   const status = err.status || 500;
   const message = err.message || 'Something went wrong!';
