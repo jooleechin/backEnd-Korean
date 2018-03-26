@@ -5,11 +5,6 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('Q1vowels').insert([
-<<<<<<< HEAD
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-=======
         {id: 1, question: 'ㅏ', a: "uh", b: "ah", c: "weh", d: "oo", answer: "ah"},
         {id: 2, question: 'ㅑ', a: "yah", b: "ah", c: "wee", d: "eu-ee", answer: "yah"},
         {id: 3, question: 'ㅓ', a: "wah", b: "ah", c: "yoo", d: "uh", answer: "uh"},
@@ -31,8 +26,6 @@ exports.seed = function(knex, Promise) {
         {id: 19, question: 'ㅞ', a: "yoo", b: "oo", c: "weh", d: "wah", answer: "weh"},
         {id: 20, question: 'ㅟ', a: "wah", b: "oo", c: "weh", d: "wee", answer: "wee"},
         {id: 21, question: 'ㅢ', a: "eu-ee", b: "wee", c: "wuh", d: "wah", answer: "eu-ee"},
-
->>>>>>> 374de31a2daea6f7d067a8ff88c6dd738f85fde3
       ]);
     });
     .then(() => {

@@ -24,8 +24,11 @@ exports.seed = function(knex, Promise) {
         {id: 17, question: 'ㅃ', a: "hard pp", b: 'soft ch or j', c: 'aspirated p', d: "soft t or d", answer: 'hard pp'},
         {id: 18, question: 'ㅆ', a: "m", b: 'n', c: 'hard ss or sh', d: "soft t or d", answer: 'hard ss or sh'},
         {id: 19, question: 'ㅉ', a: "ch", b: 'hard cch', c: 'aspirated k', d: "hard kk", answer: 'hard cch'},
-
-
       ]);
-    });
+    })
+    .then(() => {
+      return knex.raw(
+        `SELECT setval('Q2consonants', (SELECT MAX(id) FROM Q2consonants))`
+      )
+    })
 };
