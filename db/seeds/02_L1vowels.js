@@ -1,8 +1,8 @@
 
 exports.seed = function(knex, Promise) {
-  return knex('L1vowels').del()
+  return knex('l1vowels').del()
     .then(function() {
-      return knex('L1vowels').insert([
+      return knex('l1vowels').insert([
         {id: 1, symbol: 'ㅏ', pronounciation: 'ah'},
         {id: 2, symbol: 'ㅑ', pronounciation: 'yah'},
         {id: 3, symbol: 'ㅓ', pronounciation: 'uh'},
@@ -28,7 +28,7 @@ exports.seed = function(knex, Promise) {
     })
     .then(() => {
       return knex.raw(
-        `SELECT setval('L1vowels_id_seq', (SELECT MAX(id) FROM L1vowels))`
+        `SELECT setval('l1vowels_id_seq', (SELECT MAX(id) FROM l1vowels))`
       )
     })
 }

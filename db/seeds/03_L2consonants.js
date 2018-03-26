@@ -1,8 +1,8 @@
 
 exports.seed = function(knex, Promise) {
-  return knex('L2consonants').del()
+  return knex('l2consonants').del()
     .then(function() {
-      return knex('L2consonants').insert([
+      return knex('l2consonants').insert([
         {id: 1, symbol: 'ㄱ', pronounciation: 'soft k or g', name: 'kee-yuhk'},
         {id: 2, symbol: 'ㄴ', pronounciation: 'n', name: 'knee-eun'},
         {id: 3, symbol: 'ㄷ', pronounciation: 'soft t or d', name: 'dee-geut'},
@@ -26,7 +26,7 @@ exports.seed = function(knex, Promise) {
     })
     .then(() => {
       return knex.raw(
-        `SELECT setval('L2consonants_id_seq', (SELECT MAX(id) FROM L2consonants))`
+        `SELECT setval('l2consonants_id_seq', (SELECT MAX(id) FROM l2consonants))`
       )
     })
 }

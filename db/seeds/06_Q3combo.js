@@ -1,10 +1,10 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('Q3combo').del()
+  return knex('q3combo').del()
     .then(function () {
       // Inserts seed entries
-      return knex('Q3combo').insert([
+      return knex('q3combo').insert([
         {id: 1, question: '가', a: "gah", b: "bah", c: "buh", d: "gyah", answer: "gah"},
         {id: 2, question: '부', a: "bah", b: "boo", c: "suh", d: "peh", answer: "boo"},
         {id: 3, question: '너', a: "teh", b: "goh", c: "nah", d: "nuh", answer: "nuh"},
@@ -29,7 +29,7 @@ exports.seed = function(knex, Promise) {
     })
     .then(() => {
       return knex.raw(
-        `SELECT setval('Q3combo', (SELECT MAX(id) FROM Q3combo))`
+        `SELECT setval('q3combo_id_seq', (SELECT MAX(id) FROM q3combo))`
       )
     })
 };

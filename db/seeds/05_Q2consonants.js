@@ -1,10 +1,10 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('Q2consonants').del()
+  return knex('q2consonants').del()
     .then(function () {
       // Inserts seed entries
-      return knex('Q2consonants').insert([
+      return knex('q2consonants').insert([
         {id: 1, question: 'ㄱ', a: "soft k or g", b: "soft t or d", c: "soft ch or j", d: "hard kk", answer: "soft k or g"},
         {id: 2, question: 'ㄴ', a: "m", b: "n", c: "soft k or g", d: "hard tt", answer: "n"},
         {id: 3, question: 'ㄷ', a: "ch", b: "m", c: "soft t or d", d: "hard tt", answer: "soft t or d"},
@@ -28,7 +28,7 @@ exports.seed = function(knex, Promise) {
     })
     .then(() => {
       return knex.raw(
-        `SELECT setval('Q2consonants', (SELECT MAX(id) FROM Q2consonants))`
+        `SELECT setval('q2consonants_id_seq', (SELECT MAX(id) FROM q2consonants))`
       )
     })
 };
