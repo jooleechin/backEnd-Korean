@@ -4,7 +4,6 @@ exports.up = function(knex, Promise) {
     t.increments()
     t.string('symbol').notNullable().defaultTo('')
     t.string('pronounciation').notNullable().defaultTo('')
-    t.string('name').notNullable().defaultTo('')
   })
 };
 
