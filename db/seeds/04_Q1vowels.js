@@ -1,10 +1,10 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('Q1vowels').del()
+  return knex('q1vowels').del()
     .then(function () {
       // Inserts seed entries
-      return knex('Q1vowels').insert([
+      return knex('q1vowels').insert([
         {id: 1, question: 'ㅏ', a: "uh", b: "ah", c: "weh", d: "oo", answer: "ah"},
         {id: 2, question: 'ㅑ', a: "yah", b: "ah", c: "wee", d: "eu-ee", answer: "yah"},
         {id: 3, question: 'ㅓ', a: "wah", b: "ah", c: "yoo", d: "uh", answer: "uh"},
@@ -30,7 +30,7 @@ exports.seed = function(knex, Promise) {
     })
     .then(() => {
       return knex.raw(
-        `SELECT setval('Q1vowels_id_seq', (SELECT MAX(id) FROM Q1vowels))`
+        `SELECT setval('q1vowels_id_seq', (SELECT MAX(id) FROM q1vowels))`
       )
     })
 };

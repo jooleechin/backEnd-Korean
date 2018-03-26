@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('Q3combo', (t) => {
+  return knex.schema.createTable('q3combo', (t) => {
     t.increments()
     t.string('question').notNullable().defaultTo('')
     t.string('a').notNullable().defaultTo('')
@@ -12,5 +12,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('Q3combo')
+  return knex.schema.dropTable('q3combo')
 };
