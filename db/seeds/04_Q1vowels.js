@@ -27,25 +27,10 @@ exports.seed = function(knex, Promise) {
         {id: 20, question: 'ㅟ', a: "wah", b: "oo", c: "weh", d: "wee", answer: "wee"},
         {id: 21, question: 'ㅢ', a: "eu-ee", b: "wee", c: "wuh", d: "wah", answer: "eu-ee"},
       ]);
-    });
+    })
     .then(() => {
       return knex.raw(
         `SELECT setval('Q1vowels_id_seq', (SELECT MAX(id) FROM Q1vowels))`
       )
     })
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{id: 21, symbol: 'ㅢ', pronounciation: 'eu-ee'}
