@@ -30,18 +30,3 @@ exports.seed = function(knex, Promise) {
       ]);
     });
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{id: 21, symbol: 'ㅢ', pronounciation: 'eu-ee'}
