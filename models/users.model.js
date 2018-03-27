@@ -3,7 +3,13 @@ const bcrypt = require('bcryptjs')
 
 class Users {
   static all() {
+    let result = {}
     return knex('users')
+      .then(data => {
+        result.users = data
+        return knex('questions')
+      })
+      .then()
   }
   static one(id) {
     return knex('users')
