@@ -1,6 +1,6 @@
 const knex = require('../db/knex')
 const bcrypt = require('bcryptjs')
-
+//fix to functions
 class Users {
   static all() {
     let result = {}
