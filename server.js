@@ -8,9 +8,11 @@ app.use(bodyParser.json());
 
 // const { usersRouter, loginRouter } = require('./routes')
 // app.use('/login', loginRouter)
-const { usersRouter, questionsRouter } = require('./routes')
+const { usersRouter, learnRouter, questionsRouter } = require('./routes')
 app.use('/users', usersRouter)
+app.use('/learn', learnRouter)
 app.use('/questions', questionsRouter)
+
 
 app.use((req, res) => {
   const status = 404;
