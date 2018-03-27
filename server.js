@@ -3,13 +3,14 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
 const app = express();
-require('dotenv').config()
 
 app.use(bodyParser.json());
 
-const { usersRouter, loginRouter } = require('./routes')
+// const { usersRouter, loginRouter } = require('./routes')
+// app.use('/login', loginRouter)
+const { usersRouter, questionsRouter } = require('./routes')
 app.use('/users', usersRouter)
-app.use('/login', loginRouter)
+app.use('/questions', questionsRouter)
 
 app.use((req, res) => {
   const status = 404;
