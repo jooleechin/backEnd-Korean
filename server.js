@@ -3,7 +3,10 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
 const app = express();
+const cors = require('cors')
 
+
+app.use(cors())
 app.use(bodyParser.json());
 
 // const { usersRouter, loginRouter } = require('./routes')
