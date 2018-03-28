@@ -12,7 +12,7 @@ const { usersRouter, learnRouter, questionsRouter, authRouter } = require('./rou
 app.use('/users', usersRouter)
 app.use('/learn', learnRouter)
 app.use('/questions', questionsRouter)
-app.use('/', authRouter)
+app.use(authRouter)
 
 app.use((req, res) => {
   const status = 404;
