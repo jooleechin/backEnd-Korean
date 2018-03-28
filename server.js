@@ -8,13 +8,11 @@ const cors = require('cors')
 app.use(cors())
 app.use(bodyParser.json());
 
-// const { usersRouter, loginRouter } = require('./routes')
-// app.use('/login', loginRouter)
-const { usersRouter, learnRouter, questionsRouter } = require('./routes')
+const { usersRouter, learnRouter, questionsRouter, authRouter } = require('./routes')
 app.use('/users', usersRouter)
 app.use('/learn', learnRouter)
 app.use('/questions', questionsRouter)
-
+app.use('/', authRouter)
 
 app.use((req, res) => {
   const status = 404;

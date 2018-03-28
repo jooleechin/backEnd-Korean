@@ -1,5 +1,6 @@
 module.exports = {
-  UsersController: require('./users.controller'),
-  QuestionsController: require('./questions.controller'),
-  LearnController: require('./learn.controller')
+  usersController: require('./users.controller'),
+  questionsController: require('./questions.controller'),
+  learnController: require('./learn.controller'),
+  authController: require('./auth.controller')
 }

@@ -1,22 +1,22 @@
-const { Users } = require('../models')
+const usersModel = require('../models')
 
-const everything = (req, res, next) => {
-  Users.all().then(users => res.json({ users }))
+let everything = (req, res, next) => {
+  usersModel.all().then(users => res.json({ users }))
 }
-const one = (req, res, next) => {
-  Users.one(req.params.id).then(user => res.json({ user }))
+let one = (req, res, next) => {
+  usersModel.one(req.params.id).then(user => res.json({ user }))
 }
-const quiz = (req, res, next) => {
-  Users.quiz(req.params.id).then(quiz => res.json({ quiz }))
+let quiz = (req, res, next) => {
+  usersModel.quiz(req.params.id).then(quiz => res.json({ quiz }))
 }
-const signup = (req, res, next) => {
-  Users.signup(req.body).then(user => res.json({ user }))
+let signup = (req, res, next) => {
+  usersModel.signup(req.body).then(user => res.json({ user }))
 }
-const edit = (req, res, next) => {
-  Users.edit(req.params.id, req.body).then(user => res.json({ user }))
+let edit = (req, res, next) => {
+  usersModel.edit(req.params.id, req.body).then(user => res.json({ user }))
 }
-const erase = (req, res, next) => {
-  Users.erase(req.params.id).then(user => res.json({ user }))
+let erase = (req, res, next) => {
+  usersModel.erase(req.params.id).then(user => res.json({ user }))
 }
 
 module.exports = {

@@ -1,7 +1,7 @@
 const router = require('express').Router()
-const { LearnController } = require('../controllers')
+const { learnController } = require('../controllers')
 
-router.get('/', LearnController.everything)
-router.get('/:id', LearnController.one)
+router.get('/', learnController.everything)
+router.get('/:id', learnController.one)
 
 module.exports = router
