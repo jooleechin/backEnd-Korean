@@ -8,7 +8,9 @@ let comparePass = (email, password) => {
   })
   .first()
   .then(result => {
-    if (result) return result
+    if (result) {
+      return result
+    }
     return false
   })
 }

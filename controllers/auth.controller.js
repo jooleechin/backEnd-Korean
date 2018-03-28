@@ -2,7 +2,7 @@ const authModel = require('../models/auth.model')
 
 let login = (req, res, next) => {
   const { email, password } = req.body
-  authModel.comparePass(password, email)
+  authModel.comparePass(email, password)
     .then(matches => {
       res.json({ matches })
     })
