@@ -12,7 +12,7 @@ let one = (id) => {
 let quiz = (id) => {
   return knex('users')
     .join('users_questions', 'users.id', '=', 'users_questions.user_id')
-    
+    .where('isCorrect', false)
 }
 let signup = (body) => {
   return knex('users')

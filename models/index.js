@@ -1,5 +1,6 @@
 module.exports = {
-  Users: require('./users.model'),
-  Questions: require('./questions.model'),
-  Learn: require('./learn.model')
+  usersModel: require('./users.model'),
+  questionsModel: require('./questions.model'),
+  learnModel: require('./learn.model'),
+  authModel: require('./auth.model')
 }

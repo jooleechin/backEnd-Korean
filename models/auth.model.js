@@ -1,3 +1,34 @@
+let knex = require('../db/knex')
+
+let comparePass = (email, password) => {
+  return knex('users')
+  .where({
+    'email': email,
+    'password': password
+  })
+  .first()
+  .then(result => {
+    if (result) return result
+    return false
+  })
+}
+
+let signup = (fName, email, password) => {
+  return knex('users')
+  .insert({
+    fName,
+    email,
+    password
+  })
+  .returning('*')
+}
+
+module.exports = {
+  comparePass,
+  signup
+}
+
+/*
 const uuid = require('uuid')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonWebTockenAsync')
@@ -36,3 +67,4 @@ module.exports = {
   generateToken,
   verifyToken
 }
+*/
