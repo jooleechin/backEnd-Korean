@@ -8,7 +8,12 @@ let one = (id) => {
   return knex('users')
     .where({ id })
     .first()
-} 
+}
+let quiz = (id) => {
+  return knex('users')
+    .join('users_questions', 'users.id', '=', 'users_questions.user_id')
+    
+}
 let signup = (body) => {
   return knex('users')
     .insert(body, '*')
@@ -49,6 +54,7 @@ let tryLoginUser = (email, password) => {
 module.exports = {
   all,
   one,
+  quiz,
   signup,
   edit,
   erase,
