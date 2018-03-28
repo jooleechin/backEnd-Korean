@@ -1,6 +1,5 @@
 const knex = require('../db/knex')
 const bcrypt = require('bcryptjs')
-//fix to functions
 
 let all = () => {
   return knex('users')
@@ -9,7 +8,7 @@ let one = (id) => {
   return knex('users')
     .where({ id })
     .first()
-}
+} 
 let signup = (body) => {
   return knex('users')
     .insert(body, '*')
