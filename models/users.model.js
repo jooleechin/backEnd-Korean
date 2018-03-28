@@ -1,6 +1,5 @@
 const knex = require('../db/knex')
 const bcrypt = require('bcryptjs')
-//fix to functions
 
 let all = () => {
   return knex('users')
@@ -9,6 +8,11 @@ let one = (id) => {
   return knex('users')
     .where({ id })
     .first()
+}
+let quiz = (id) => {
+  return knex('users')
+    .join('users_questions', 'users.id', '=', 'users_questions.user_id')
+    
 }
 let signup = (body) => {
   return knex('users')
@@ -50,6 +54,7 @@ let tryLoginUser = (email, password) => {
 module.exports = {
   all,
   one,
+  quiz,
   signup,
   edit,
   erase,
