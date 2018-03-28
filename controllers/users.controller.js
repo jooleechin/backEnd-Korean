@@ -9,6 +9,9 @@ class UsersController {
   static one(req, res, next) {
     Users.one(req.params.id).then(user => res.json({ user }))
   }
+  static quiz(req, res, next) {
+    Users.quiz(req.params.id).then(quiz => res.json({ quiz }))
+  }
   static signup(req, res, next) {
     Users.signup(req.body).then(user => res.json({ user }))
   }
