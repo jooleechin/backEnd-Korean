@@ -8,7 +8,9 @@ let one = (req, res, next) => {
   questionsModel.getOneQuestion(req.params.id).then(question => res.json({ question }))
 }
 
+
+
 module.exports = {
   everything,
-  one
+  one,
 }

@@ -9,10 +9,11 @@ let one = (id) => {
     .where({ id })
     .first()
 }
-let quiz = (id) => {
+let quiz = (id, session) => {
   return knex('users')
     .join('users_questions', 'users.id', '=', 'users_questions.user_id')
     .where('isCorrect', false)
+    .where('session', session)
 
 }
 let signup = (body) => {
