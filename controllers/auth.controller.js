@@ -1,5 +1,5 @@
 const authModel = require('../models/auth.model')
-
+const userModel = require('../models/users.model')
 let login = (req, res, next) => {
   const { email, password } = req.body
   authModel.comparePass(email, password)
@@ -13,7 +13,13 @@ let signup = (req, res, next) => {
   let { fName, email, password } = req.body
   authModel.signup(fName, email, password)
     .then (results => {
-      res.json(results)
+      userModel.userinitQuestions(results[0].id)
+      .then((users_questions) => {
+        res.json(results)
+      })
+      .catch(err => {
+        next(err)
+      })
     })
     .catch(err => next(err))
 }

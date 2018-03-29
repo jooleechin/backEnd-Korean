@@ -7,7 +7,7 @@ let one = (req, res, next) => {
   usersModel.one(req.params.id).then(user => res.json({ user }))
 }
 let quiz = (req, res, next) => {
-  usersModel.quiz(req.params.id, req.params.session).then(quiz => res.json({ quiz }))
+  usersModel.quiz(req.params.id).then(quiz => res.json({ quiz }))
 }
 let signup = (req, res, next) => {
   usersModel.signup(req.body).then(user => res.json({ user }))
