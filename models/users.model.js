@@ -9,11 +9,11 @@ let one = (id) => {
     .where({ id })
     .first()
 }
-let quiz = (id, session) => {
-  return knex('users')
-    .join('users_questions', 'users.id', '=', 'users_questions.user_id')
-    .where('isCorrect', false)
-    .where('session', session)
+let quiz = (id) => {
+  return knex('users_questions')
+    .where("user_id", id)
+    .where('is_correct', false)
+    .innerJoin('questions', 'questions.id', 'users_questions.question_id')
 
 }
 let signup = (body) => {
@@ -53,6 +53,26 @@ let tryLoginUser = (email, password) => {
     })
 }
 
+
+let userinitQuestions = id => {
+  return knex('questions')
+    .then(questions => {
+      let inserts = questions.map(question => ({
+        user_id: id,
+        question_id: question.id,
+        is_correct: false,
+        session: 0
+      }))
+      return knex('users_questions').insert(inserts)
+    })
+}
+
+let markQuestionCorrect = (user_id, question_id) => {
+  return knex('users_questions')
+     .where({user_id, question_id})
+     .update({is_correct: true})
+}
+
 module.exports = {
   all,
   one,
@@ -60,5 +80,7 @@ module.exports = {
   signup,
   edit,
   erase,
-  tryLoginUser
+  tryLoginUser,
+  userinitQuestions,
+  markQuestionCorrect
 }

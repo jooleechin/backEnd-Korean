@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
     t.foreign('user_id').references('users.id')
     t.integer('question_id').notNullable()
     t.foreign('question_id').references('questions.id')
-    t.boolean('isCorrect').notNullable().defaultTo(false)
+    t.boolean('is_correct').notNullable().defaultTo(false)
     t.integer('session').notNullable().defaultsTo(0)
   })
 };

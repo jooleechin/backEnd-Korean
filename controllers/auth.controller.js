@@ -1,5 +1,5 @@
 const authModel = require('../models/auth.model')
-
+const userModel = require('../models/users.model')
 let login = (req, res, next) => {
   const { email, password } = req.body
   // if (!email || !password) return next({status: 400, {message: 'Email and password are required!'}})
@@ -12,14 +12,17 @@ let login = (req, res, next) => {
 
 let signup = (req, res, next) => {
   let { fName, email, password } = req.body
-  // if (!fName || !email || !password) return next({status: 400, {message: 'All fields need to be filled out'}})
-  if (fName && email && password) {
-    authModel.signup(fName, email, password)
-      .then (results => {
+  authModel.signup(fName, email, password)
+    .then (results => {
+      userModel.userinitQuestions(results[0].id)
+      .then((users_questions) => {
         res.json(results)
       })
-      .catch(err => next(err))
-  }
+      .catch(err => {
+        next(err)
+      })
+    })
+    .catch(err => next(err))
 }
 
 module.exports = {
