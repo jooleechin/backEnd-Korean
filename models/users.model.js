@@ -60,8 +60,7 @@ let userinitQuestions = id => {
       let inserts = questions.map(question => ({
         user_id: id,
         question_id: question.id,
-        is_correct: false,
-        session: 0
+        is_correct: false
       }))
       return knex('users_questions').insert(inserts)
     })
