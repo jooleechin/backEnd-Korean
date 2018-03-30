@@ -8,6 +8,8 @@ const cors = require('cors')
 app.use(cors())
 app.use(bodyParser.json());
 
+// TODO MVC this
+
 const { usersRouter, learnRouter, questionsRouter, authRouter } = require('./routes')
 app.use('/users', usersRouter)
 app.use('/learn', learnRouter)

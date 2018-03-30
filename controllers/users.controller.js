@@ -7,7 +7,10 @@ let one = (req, res, next) => {
   usersModel.one(req.params.id).then(user => res.json({ user }))
 }
 let quiz = (req, res, next) => {
-  usersModel.quiz(req.params.id).then(quiz => res.json({ quiz }))
+  usersModel.quiz(req.params.id).then(quiz => {
+    debugger
+    res.json({ quiz })
+  })
 }
 let signup = (req, res, next) => {
   usersModel.signup(req.body).then(user => res.json({ user }))
@@ -19,11 +22,18 @@ let erase = (req, res, next) => {
   usersModel.erase(req.params.id).then(user => res.json({ user }))
 }
 
+let markQuestionCorrect = (req, res, next) => {
+  debugger
+  let {user_id, question_id} = req.body
+  usersModel.markQuestionCorrect(user_id, question_id).then(() => res.json({msg: 'question marked correct'}))
+}
+
 module.exports = {
   everything,
   one,
   quiz,
   signup,
   edit,
-  erase
+  erase,
+  markQuestionCorrect
 }

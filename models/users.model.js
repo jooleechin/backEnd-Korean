@@ -10,9 +10,10 @@ let one = (id) => {
     .first()
 }
 let quiz = (id) => {
-  return knex('users')
-    .join('users_questions', 'users.id', '=', 'users_questions.user_id')
+  return knex('users_questions')
+    .where("user_id", id)
     .where('is_correct', false)
+    .innerJoin('questions', 'questions.id', 'users_questions.question_id')
 
 }
 let signup = (body) => {
@@ -51,15 +52,7 @@ let tryLoginUser = (email, password) => {
       return bcrypt.compare(password, result.password)
     })
 }
-/*
-t.increments()
-t.integer('user_id').notNullable()
-t.foreign('user_id').references('users.id')
-t.integer('question_id').notNullable()
-t.foreign('question_id').references('questions.id')
-t.boolean('isCorrect').notNullable().defaultTo(false)
-t.integer('session').notNullable().defaultsTo(0)
-*/
+
 
 let userinitQuestions = id => {
   return knex('questions')
@@ -74,6 +67,12 @@ let userinitQuestions = id => {
     })
 }
 
+let markQuestionCorrect = (user_id, question_id) => {
+  return knex('users_questions')
+     .where({user_id, question_id})
+     .update({is_correct: true})
+}
+
 module.exports = {
   all,
   one,
@@ -82,5 +81,6 @@ module.exports = {
   edit,
   erase,
   tryLoginUser,
-  userinitQuestions
+  userinitQuestions,
+  markQuestionCorrect
 }
