@@ -1,4 +1,5 @@
 let knex = require('../db/knex')
+let id = require('uuid/v4')
 
 let comparePass = (email, password) => {
   return knex('users')
