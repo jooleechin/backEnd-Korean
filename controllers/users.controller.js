@@ -1,4 +1,4 @@
-const usersModel = require('../models/users.model')
+ const usersModel = require('../models/users.model')
 
 let everything = (req, res, next) => {
   usersModel.all().then(users => res.json({ users }))

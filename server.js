@@ -8,8 +8,6 @@ const cors = require('cors')
 app.use(cors())
 app.use(bodyParser.json());
 
-// TODO MVC this
-
 const { usersRouter, learnRouter, questionsRouter, authRouter } = require('./routes')
 app.use('/users', usersRouter)
 app.use('/learn', learnRouter)
@@ -29,7 +27,7 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message, status });
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.listen(port, () => {
   console.log('listening on port', port);
